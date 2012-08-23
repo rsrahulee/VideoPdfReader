@@ -1,0 +1,15 @@
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\VideoPdfReader.csproj.ResolveComReference.cache
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\VideoPdfReader.Form1.resources
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\VideoPdfReader.Properties.Resources.resources
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\bin\Debug\VideoPdfReader.exe
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\bin\Debug\VideoPdfReader.pdb
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\VideoPdfReader.exe
+C:\Users\admin\Documents\Visual Studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\VideoPdfReader.pdb
+C:\Users\admin\documents\visual studio 2010\Projects\VideoPdfReader\VideoPdfReader\bin\Debug\VideoPdfReader.exe.config
+C:\Users\admin\documents\visual studio 2010\Projects\VideoPdfReader\VideoPdfReader\bin\Debug\Interop.WMPLib.dll
+C:\Users\admin\documents\visual studio 2010\Projects\VideoPdfReader\VideoPdfReader\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\admin\documents\visual studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\admin\documents\visual studio 2010\Projects\VideoPdfReader\VideoPdfReader\obj\x86\Debug\AxInterop.WMPLib.dll
