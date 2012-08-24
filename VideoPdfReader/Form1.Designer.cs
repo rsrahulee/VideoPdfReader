@@ -37,8 +37,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.axAcroPDFReader = new AxAcroPDFLib.AxAcroPDF();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnShowVideo = new System.Windows.Forms.Button();
+            this.btnShowPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDFReader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -114,33 +114,33 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(932, 486);
             this.axWindowsMediaPlayer1.TabIndex = 8;
             // 
-            // button1
+            // btnShowVideo
             // 
-            this.button1.Location = new System.Drawing.Point(451, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Show Video";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnShowVideo.Location = new System.Drawing.Point(451, 40);
+            this.btnShowVideo.Name = "btnShowVideo";
+            this.btnShowVideo.Size = new System.Drawing.Size(75, 23);
+            this.btnShowVideo.TabIndex = 14;
+            this.btnShowVideo.Text = "Show Video";
+            this.btnShowVideo.UseVisualStyleBackColor = true;
+            this.btnShowVideo.Click += new System.EventHandler(this.btnShowVideo_Click_1);
             // 
-            // button2
+            // btnShowPdf
             // 
-            this.button2.Location = new System.Drawing.Point(667, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "show Pdf";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnShowPdf.Location = new System.Drawing.Point(667, 39);
+            this.btnShowPdf.Name = "btnShowPdf";
+            this.btnShowPdf.Size = new System.Drawing.Size(75, 23);
+            this.btnShowPdf.TabIndex = 15;
+            this.btnShowPdf.Text = "show Pdf";
+            this.btnShowPdf.UseVisualStyleBackColor = true;
+            this.btnShowPdf.Click += new System.EventHandler(this.btnShowPdf_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 638);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnShowPdf);
+            this.Controls.Add(this.btnShowVideo);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.axAcroPDFReader);
             this.Controls.Add(this.comboBoxVideo);
@@ -168,8 +168,8 @@
         private System.Windows.Forms.ComboBox comboBoxVideo;
         private AxAcroPDFLib.AxAcroPDF axAcroPDFReader;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnShowVideo;
+        private System.Windows.Forms.Button btnShowPdf;
     }
 }
 

@@ -80,9 +80,6 @@ namespace VideoPdfReader
             btnRefreshVideo.Hide();
             btnRefreshPdf.Hide();
 
-            //this.Controls.Remove(axAcroPDFReader);
-            //this.Controls.Remove(axWindowsMediaPlayer1);
-
             comboBoxVideo.Text = "select video to play";
             comboBoxPdf.Text = "select pdf file to read";           
 
@@ -94,7 +91,6 @@ namespace VideoPdfReader
         private void comboBoxPdf_SelectedIndexChanged(object sender, EventArgs e)
         {
             String file_name = comboBoxPdf.Text;
-
             try
             {
                 if (System.IO.File.Exists(file_name) == true)
@@ -204,7 +200,7 @@ namespace VideoPdfReader
                 MessageBoxIcon.Information);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShowVideo_Click_1(object sender, EventArgs e)
         {
             comboBoxVideo.Show();
             comboBoxPdf.Hide();
@@ -216,8 +212,13 @@ namespace VideoPdfReader
             this.Controls.Add(axWindowsMediaPlayer1);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnShowPdf_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1!=null)
+            {
+                axWindowsMediaPlayer1.close();
+            }
+
             comboBoxVideo.Hide();
             comboBoxPdf.Show();
 
