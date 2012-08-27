@@ -114,7 +114,7 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(306, 107);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(837, 498);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(830, 498);
             this.axWindowsMediaPlayer1.TabIndex = 8;
             // 
             // btnShowVideo

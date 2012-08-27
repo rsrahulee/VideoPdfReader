@@ -22,6 +22,8 @@ namespace VideoPdfReader
         private Boolean is_video_click = false;
         private Boolean is_pdf_click = false;
 
+        private string directory = "D:\\Rahul";
+
         public Form1()
         {
             InitializeComponent();
@@ -34,6 +36,12 @@ namespace VideoPdfReader
         private void Form1_Load(object sender, EventArgs e)
         {
             Console.WriteLine("Form1_Load------------");
+
+            this.AutoSize = true;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.Text = "VideoPdfReader";
+
+            //axAcroPDFReader.setShowToolbar(false);
 
             comboBoxVideo.Hide();
             comboBoxPdf.Hide();
@@ -56,7 +64,7 @@ namespace VideoPdfReader
            //comboBoxPdf.Items.Clear();
             try
             {
-                filePaths = Directory.GetFiles(@"D:\Rahul\", "*.pdf", SearchOption.AllDirectories);
+                filePaths = Directory.GetFiles(directory, "*.pdf", SearchOption.AllDirectories);
                 if (filePaths.Length > 0)
                 {
                     //comboBoxPdf.MaxDropDownItems = filePaths.Length;
@@ -81,7 +89,7 @@ namespace VideoPdfReader
 
         private void loadVideoCombo()
         {
-            string directory = "D:\\Rahul";
+            //string directory = "D:\\Rahul";
             //comboBoxVideo.Items.Clear();
 
             //listBox1.Items.Clear();
@@ -116,7 +124,7 @@ namespace VideoPdfReader
                 {
                    if(axAcroPDFReader!=null){
                       // Dispose();
-                   }
+                   }                  
                    axAcroPDFReader.LoadFile(file_name);                   
                 }
                 else
@@ -224,10 +232,11 @@ namespace VideoPdfReader
         }
 
         private void listBox1_DoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
+        {     
+            
             Console.WriteLine("listBox1_DoubleClick---------------");
             if (is_pdf_click == true)
-            {
+            {               
                 if (pdf_items.Count > 0)
                 {
                     String file_name = pdf_items.ElementAt(listBox1.SelectedIndex);
@@ -241,6 +250,7 @@ namespace VideoPdfReader
                                 // Dispose();
                             }
                             axAcroPDFReader.LoadFile(file_name);
+                            axAcroPDFReader.setShowToolbar(false);
                         }
                         else
                         {
@@ -271,6 +281,7 @@ namespace VideoPdfReader
                                 // Dispose();
                             }
                             axAcroPDFReader.LoadFile(file_name);
+                            axAcroPDFReader.setShowToolbar(false);
                         }
                         else
                         {
@@ -389,7 +400,8 @@ namespace VideoPdfReader
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("listBox1 Hi!--------------");           
+            Console.WriteLine("listBox1 Hi!--------------");
+            //axAcroPDFReader.setShowToolbar(false);
         }
     }
 }
