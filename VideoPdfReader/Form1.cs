@@ -43,7 +43,7 @@ namespace VideoPdfReader
             btnRefreshPdf.Hide();
         }
 
-        private void loadPdfCombo()
+        private void loadPdf()
         {
             string[] filePaths = null;          
             pdf_items.Clear();
@@ -55,7 +55,8 @@ namespace VideoPdfReader
                 {
                     foreach (string name in filePaths)
                     {
-                        pdf_items.Add(name);
+                        String preName = name.Substring(9);
+                        pdf_items.Add(preName);
                     }
                     listBox1.DataSource = pdf_items;
                 }
@@ -70,7 +71,7 @@ namespace VideoPdfReader
             }
         }
 
-        private void loadVideoCombo()
+        private void loadVideo()
         {
             video_items.Clear();
 
@@ -79,7 +80,9 @@ namespace VideoPdfReader
                 string supportedExtensions = "*.mpg,*.avi,*.mp4";
                 foreach (string videoFile in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())))
                 {
-                    video_items.Add(videoFile);
+                    //video_items.Add(videoFile);
+                    String preName = videoFile.Substring(9);
+                    video_items.Add(preName);
                 }
                 listBox1.DataSource = video_items;
             }
@@ -100,12 +103,12 @@ namespace VideoPdfReader
 
         private void btnRefreshPdf_Click(object sender, EventArgs e)
         {
-            loadPdfCombo();
+            loadPdf();
         }
 
         private void btnRefreshVideo_Click(object sender, EventArgs e)
         {
-            loadVideoCombo();
+            loadVideo();
         }
 
        private void InitializeListBox(){
@@ -120,7 +123,8 @@ namespace VideoPdfReader
             {               
                 if (pdf_items.Count > 0)
                 {
-                    String file_name = pdf_items.ElementAt(listBox1.SelectedIndex);
+                    String absPAth = pdf_items.ElementAt(listBox1.SelectedIndex);
+                    String file_name = directory+"\\"+ absPAth;
 
                     try
                     {
@@ -149,9 +153,11 @@ namespace VideoPdfReader
                 }
                 else
                 {
-                    loadPdfCombo();
+                    loadPdf();
 
-                    String file_name = pdf_items.ElementAt(listBox1.SelectedIndex);
+                    //String file_name = pdf_items.ElementAt(listBox1.SelectedIndex);
+                    String absPAth = pdf_items.ElementAt(listBox1.SelectedIndex);
+                    String file_name = directory + "\\" + absPAth;
 
                     try
                     {
@@ -183,7 +189,9 @@ namespace VideoPdfReader
             {
                 if (video_items.Count > 0)
                 {
-                    String file_name = video_items.ElementAt(listBox1.SelectedIndex);
+                    //String file_name = video_items.ElementAt(listBox1.SelectedIndex);
+                    String absPAth = video_items.ElementAt(listBox1.SelectedIndex);
+                    String file_name = directory + "\\" + absPAth;
                     try
                     {
                         if (System.IO.File.Exists(file_name) == true)
@@ -192,7 +200,8 @@ namespace VideoPdfReader
                             {
 
                             }
-                            axWindowsMediaPlayer1.URL = file_name;
+                            byte[] localString = VideoPdfReader.Properties.Resources.Takeoff;
+                            axWindowsMediaPlayer1.URL = file_name;                           
                         }
                         else
                         {
@@ -210,9 +219,11 @@ namespace VideoPdfReader
                 }
                 else
                 {
-                    loadVideoCombo();
+                    loadVideo();
 
-                    String file_name = video_items.ElementAt(listBox1.SelectedIndex);
+                    //String file_name = video_items.ElementAt(listBox1.SelectedIndex);
+                    String absPAth = video_items.ElementAt(listBox1.SelectedIndex);
+                    String file_name = directory + "\\" + absPAth;
                     try
                     {
                         if (System.IO.File.Exists(file_name) == true)
@@ -251,7 +262,7 @@ namespace VideoPdfReader
             this.Controls.Remove(axAcroPDFReader);
             this.Controls.Add(axWindowsMediaPlayer1);
 
-            loadVideoCombo();
+            loadVideo();
         }
 
         private void btnShowPdf_Click(object sender, EventArgs e)
@@ -270,7 +281,7 @@ namespace VideoPdfReader
             this.Controls.Remove(axWindowsMediaPlayer1);
             this.Controls.Add(axAcroPDFReader);
 
-            loadPdfCombo();
+            loadPdf();
         }
     }
 }

@@ -34,12 +34,12 @@
             this.btnRefreshVideo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.axAcroPDFReader = new AxAcroPDFLib.AxAcroPDF();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnShowVideo = new System.Windows.Forms.Button();
             this.btnShowPdf = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.axAcroPDFReader = new AxAcroPDFLib.AxAcroPDF();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDFReader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -78,25 +78,6 @@
             this.lblTitle.TabIndex = 13;
             this.lblTitle.Text = "Welcome";
             // 
-            // axAcroPDFReader
-            // 
-            this.axAcroPDFReader.Enabled = true;
-            this.axAcroPDFReader.Location = new System.Drawing.Point(306, 107);
-            this.axAcroPDFReader.Name = "axAcroPDFReader";
-            this.axAcroPDFReader.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDFReader.OcxState")));
-            this.axAcroPDFReader.Size = new System.Drawing.Size(855, 504);
-            this.axAcroPDFReader.TabIndex = 12;
-            this.axAcroPDFReader.OnError += new System.EventHandler(this.axAcroPDFReader_OnError);
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(306, 107);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(830, 498);
-            this.axWindowsMediaPlayer1.TabIndex = 8;
-            // 
             // btnShowVideo
             // 
             this.btnShowVideo.Location = new System.Drawing.Point(26, 40);
@@ -130,6 +111,25 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // axAcroPDFReader
+            // 
+            this.axAcroPDFReader.Enabled = true;
+            this.axAcroPDFReader.Location = new System.Drawing.Point(306, 107);
+            this.axAcroPDFReader.Name = "axAcroPDFReader";
+            this.axAcroPDFReader.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDFReader.OcxState")));
+            this.axAcroPDFReader.Size = new System.Drawing.Size(842, 498);
+            this.axAcroPDFReader.TabIndex = 12;
+            this.axAcroPDFReader.OnError += new System.EventHandler(this.axAcroPDFReader_OnError);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(306, 107);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(830, 498);
+            this.axWindowsMediaPlayer1.TabIndex = 8;
             // 
             // Form1
             // 
