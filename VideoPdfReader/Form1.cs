@@ -115,65 +115,65 @@ namespace VideoPdfReader
             }
         }       
 
-        private void comboBoxPdf_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String file_name = comboBoxPdf.Text;
-            try
-            {
-                if (System.IO.File.Exists(file_name) == true)
-                {
-                   if(axAcroPDFReader!=null){
-                      // Dispose();
-                   }                  
-                   axAcroPDFReader.LoadFile(file_name);                   
-                }
-                else
-                {
-                    MessageBox.Show("Sorry! file not exsist");
-                }
-            }
-            catch (FileNotFoundException notFountException)
-            {
-                MessageBox.Show("Sorry! file not exsist\n" + notFountException);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Sorry! Error in loading files\n" + exception);
-            }
-        }
+        //private void comboBoxPdf_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    String file_name = comboBoxPdf.Text;
+        //    try
+        //    {
+        //        if (System.IO.File.Exists(file_name) == true)
+        //        {
+        //           if(axAcroPDFReader!=null){
+        //              // Dispose();
+        //           }                  
+        //           axAcroPDFReader.LoadFile(file_name);                   
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Sorry! file not exsist");
+        //        }
+        //    }
+        //    catch (FileNotFoundException notFountException)
+        //    {
+        //        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        MessageBox.Show("Sorry! Error in loading files\n" + exception);
+        //    }
+        //}
 
-        private void txtDesc_TextChanged(object sender, EventArgs e)
-        {
+        //private void txtDesc_TextChanged(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        private void comboBoxVideo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String file_name = comboBoxVideo.Text;
-            try
-            {
-                if (System.IO.File.Exists(file_name) == true)
-                {
-                    if (axWindowsMediaPlayer1!=null)
-                    {
+        //private void comboBoxVideo_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    String file_name = comboBoxVideo.Text;
+        //    try
+        //    {
+        //        if (System.IO.File.Exists(file_name) == true)
+        //        {
+        //            if (axWindowsMediaPlayer1!=null)
+        //            {
                        
-                    }
-                    axWindowsMediaPlayer1.URL = file_name;
-                }
-                else
-                {
-                    MessageBox.Show("Sorry! file not exsist");
-                }
-            }
-            catch (FileNotFoundException notFountException)
-            {
-                MessageBox.Show("Sorry! file not exsist\n" + notFountException);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Sorry! Error in loading files\n" + exception);
-            }
-        }
+        //            }
+        //            axWindowsMediaPlayer1.URL = file_name;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Sorry! file not exsist");
+        //        }
+        //    }
+        //    catch (FileNotFoundException notFountException)
+        //    {
+        //        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        MessageBox.Show("Sorry! Error in loading files\n" + exception);
+        //    }
+        //}
 
         private void axAcroPDFReader_OnError(object sender, EventArgs e)
         {
@@ -200,36 +200,36 @@ namespace VideoPdfReader
             loadVideoCombo();
         }
 
-        private void InitializeComboBox()
-        {
-           comboBoxPdf.KeyDown +=
-              new System.Windows.Forms.KeyEventHandler(comboBoxPdf_keyPress);
+        //private void InitializeComboBox()
+        //{
+        //   comboBoxPdf.KeyDown +=
+        //      new System.Windows.Forms.KeyEventHandler(comboBoxPdf_keyPress);
 
-           comboBoxVideo.KeyDown +=
-            new System.Windows.Forms.KeyEventHandler(comboBoxVideo_keyPress);
-        }
+        //   comboBoxVideo.KeyDown +=
+        //    new System.Windows.Forms.KeyEventHandler(comboBoxVideo_keyPress);
+        //}
 
        private void InitializeListBox(){
            listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(listBox1_DoubleClick);
         }
 
-        private void comboBoxPdf_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
+        //private void comboBoxPdf_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
+        //{
+        //    e.SuppressKeyPress = true;
 
-            MessageBox.Show("Cannot edit the field",
-            "Information", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-        }
+        //    MessageBox.Show("Cannot edit the field",
+        //    "Information", MessageBoxButtons.OK,
+        //        MessageBoxIcon.Information);
+        //}
 
-        private void comboBoxVideo_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
+        //private void comboBoxVideo_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
+        //{
+        //    e.SuppressKeyPress = true;
 
-            MessageBox.Show("Cannot edit the field",
-            "Information", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-        }
+        //    MessageBox.Show("Cannot edit the field",
+        //    "Information", MessageBoxButtons.OK,
+        //        MessageBoxIcon.Information);
+        //}
 
         private void listBox1_DoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {     

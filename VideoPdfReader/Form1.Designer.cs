@@ -77,7 +77,7 @@
             this.comboBoxPdf.Name = "comboBoxPdf";
             this.comboBoxPdf.Size = new System.Drawing.Size(274, 21);
             this.comboBoxPdf.TabIndex = 9;
-            this.comboBoxPdf.SelectedIndexChanged += new System.EventHandler(this.comboBoxPdf_SelectedIndexChanged);
+            //this.comboBoxPdf.SelectedIndexChanged += new System.EventHandler(this.comboBoxPdf_SelectedIndexChanged);
             // 
             // comboBoxVideo
             // 
@@ -86,7 +86,7 @@
             this.comboBoxVideo.Name = "comboBoxVideo";
             this.comboBoxVideo.Size = new System.Drawing.Size(274, 21);
             this.comboBoxVideo.TabIndex = 10;
-            this.comboBoxVideo.SelectedIndexChanged += new System.EventHandler(this.comboBoxVideo_SelectedIndexChanged);
+            //this.comboBoxVideo.SelectedIndexChanged += new System.EventHandler(this.comboBoxVideo_SelectedIndexChanged);
             // 
             // lblTitle
             // 
