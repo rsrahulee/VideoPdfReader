@@ -28,8 +28,6 @@ namespace VideoPdfReader
         {
             InitializeComponent();
 
-            //InitializeComboBox();
-
             InitializeListBox();
         }
 
@@ -41,38 +39,25 @@ namespace VideoPdfReader
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Text = "VideoPdfReader";
 
-            //axAcroPDFReader.setShowToolbar(false);
-
             comboBoxVideo.Hide();
             comboBoxPdf.Hide();
             btnRefreshVideo.Hide();
             btnRefreshPdf.Hide();
-
-            //comboBoxVideo.Text = "select video to play";
-            //comboBoxPdf.Text = "select pdf file to read";
-
-            //loadPdfCombo();
-
-            //loadVideoCombo();
         }
 
         private void loadPdfCombo()
         {
-            string[] filePaths = null;
-           // listBox1.Items.Clear();
+            string[] filePaths = null;          
             pdf_items.Clear();
-           //comboBoxPdf.Items.Clear();
+         
             try
             {
                 filePaths = Directory.GetFiles(directory, "*.pdf", SearchOption.AllDirectories);
                 if (filePaths.Length > 0)
                 {
-                    //comboBoxPdf.MaxDropDownItems = filePaths.Length;
-
                     foreach (string name in filePaths)
                     {
                         pdf_items.Add(name);
-                        //comboBoxPdf.Items.Add(name);
                     }
                     listBox1.DataSource = pdf_items;
                 }
@@ -89,10 +74,6 @@ namespace VideoPdfReader
 
         private void loadVideoCombo()
         {
-            //string directory = "D:\\Rahul";
-            //comboBoxVideo.Items.Clear();
-
-            //listBox1.Items.Clear();
             video_items.Clear();
 
             try
@@ -101,7 +82,6 @@ namespace VideoPdfReader
                 foreach (string videoFile in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())))
                 {
                     video_items.Add(videoFile);
-                    //comboBoxVideo.Items.Add(videoFile);
                 }
                 listBox1.DataSource = video_items;
             }
@@ -113,67 +93,7 @@ namespace VideoPdfReader
             {
                 MessageBox.Show("Sorry! Error in loading video files\n" + exception);
             }
-        }       
-
-        //private void comboBoxPdf_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    String file_name = comboBoxPdf.Text;
-        //    try
-        //    {
-        //        if (System.IO.File.Exists(file_name) == true)
-        //        {
-        //           if(axAcroPDFReader!=null){
-        //              // Dispose();
-        //           }                  
-        //           axAcroPDFReader.LoadFile(file_name);                   
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Sorry! file not exsist");
-        //        }
-        //    }
-        //    catch (FileNotFoundException notFountException)
-        //    {
-        //        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        MessageBox.Show("Sorry! Error in loading files\n" + exception);
-        //    }
-        //}
-
-        //private void txtDesc_TextChanged(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void comboBoxVideo_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    String file_name = comboBoxVideo.Text;
-        //    try
-        //    {
-        //        if (System.IO.File.Exists(file_name) == true)
-        //        {
-        //            if (axWindowsMediaPlayer1!=null)
-        //            {
-                       
-        //            }
-        //            axWindowsMediaPlayer1.URL = file_name;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Sorry! file not exsist");
-        //        }
-        //    }
-        //    catch (FileNotFoundException notFountException)
-        //    {
-        //        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        MessageBox.Show("Sorry! Error in loading files\n" + exception);
-        //    }
-        //}
+        } 
 
         private void axAcroPDFReader_OnError(object sender, EventArgs e)
         {
@@ -181,55 +101,18 @@ namespace VideoPdfReader
         }
 
         private void btnRefreshPdf_Click(object sender, EventArgs e)
-        {            
-            //if (comboBoxPdf!=null)
-            //{
-            //    comboBoxPdf.Items.Clear();               
-            //    comboBoxPdf.Text = "select pdf file to read";   
-            //}
+        {
             loadPdfCombo();
         }
 
         private void btnRefreshVideo_Click(object sender, EventArgs e)
         {
-            //if (comboBoxVideo != null)
-            //{
-            //    comboBoxVideo.Items.Clear();
-            //    comboBoxVideo.Text = "select video to play";
-            //}
             loadVideoCombo();
         }
-
-        //private void InitializeComboBox()
-        //{
-        //   comboBoxPdf.KeyDown +=
-        //      new System.Windows.Forms.KeyEventHandler(comboBoxPdf_keyPress);
-
-        //   comboBoxVideo.KeyDown +=
-        //    new System.Windows.Forms.KeyEventHandler(comboBoxVideo_keyPress);
-        //}
 
        private void InitializeListBox(){
            listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(listBox1_DoubleClick);
         }
-
-        //private void comboBoxPdf_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
-        //{
-        //    e.SuppressKeyPress = true;
-
-        //    MessageBox.Show("Cannot edit the field",
-        //    "Information", MessageBoxButtons.OK,
-        //        MessageBoxIcon.Information);
-        //}
-
-        //private void comboBoxVideo_keyPress(object sender, System.Windows.Forms.KeyEventArgs e)
-        //{
-        //    e.SuppressKeyPress = true;
-
-        //    MessageBox.Show("Cannot edit the field",
-        //    "Information", MessageBoxButtons.OK,
-        //        MessageBoxIcon.Information);
-        //}
 
         private void listBox1_DoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {     
@@ -364,9 +247,6 @@ namespace VideoPdfReader
             is_pdf_click = false;
             is_video_click = true;
 
-            //comboBoxVideo.Show();
-            //comboBoxPdf.Hide();
-
             btnRefreshVideo.Show();
             btnRefreshPdf.Hide();
 
@@ -385,10 +265,7 @@ namespace VideoPdfReader
             {
                 axWindowsMediaPlayer1.close();
             }
-
-            //comboBoxVideo.Hide();
-            //comboBoxPdf.Show();
-
+            
             btnRefreshVideo.Hide();
             btnRefreshPdf.Show();
 
@@ -396,12 +273,6 @@ namespace VideoPdfReader
             this.Controls.Add(axAcroPDFReader);
 
             loadPdfCombo();
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("listBox1 Hi!--------------");
-            //axAcroPDFReader.setShowToolbar(false);
         }
     }
 }
