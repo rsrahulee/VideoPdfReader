@@ -33,8 +33,6 @@
             this.btnRefreshPdf = new System.Windows.Forms.Button();
             this.btnRefreshVideo = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.comboBoxPdf = new System.Windows.Forms.ComboBox();
-            this.comboBoxVideo = new System.Windows.Forms.ComboBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.axAcroPDFReader = new AxAcroPDFLib.AxAcroPDF();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
@@ -69,24 +67,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // comboBoxPdf
-            // 
-            this.comboBoxPdf.FormattingEnabled = true;
-            this.comboBoxPdf.Location = new System.Drawing.Point(26, 107);
-            this.comboBoxPdf.Name = "comboBoxPdf";
-            this.comboBoxPdf.Size = new System.Drawing.Size(274, 21);
-            this.comboBoxPdf.TabIndex = 9;
-            //this.comboBoxPdf.SelectedIndexChanged += new System.EventHandler(this.comboBoxPdf_SelectedIndexChanged);
-            // 
-            // comboBoxVideo
-            // 
-            this.comboBoxVideo.FormattingEnabled = true;
-            this.comboBoxVideo.Location = new System.Drawing.Point(26, 107);
-            this.comboBoxVideo.Name = "comboBoxVideo";
-            this.comboBoxVideo.Size = new System.Drawing.Size(274, 21);
-            this.comboBoxVideo.TabIndex = 10;
-            //this.comboBoxVideo.SelectedIndexChanged += new System.EventHandler(this.comboBoxVideo_SelectedIndexChanged);
             // 
             // lblTitle
             // 
@@ -144,7 +124,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(274, 498);
             this.listBox1.TabIndex = 16;
-           
             // 
             // imageList1
             // 
@@ -162,8 +141,6 @@
             this.Controls.Add(this.btnShowVideo);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.axAcroPDFReader);
-            this.Controls.Add(this.comboBoxVideo);
-            this.Controls.Add(this.comboBoxPdf);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.btnRefreshVideo);
             this.Controls.Add(this.btnRefreshPdf);
@@ -183,8 +160,6 @@
         private System.Windows.Forms.Button btnRefreshVideo;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.ComboBox comboBoxPdf;
-        private System.Windows.Forms.ComboBox comboBoxVideo;
         private AxAcroPDFLib.AxAcroPDF axAcroPDFReader;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnShowVideo;

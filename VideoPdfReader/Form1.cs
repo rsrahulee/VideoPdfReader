@@ -39,8 +39,6 @@ namespace VideoPdfReader
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Text = "VideoPdfReader";
 
-            comboBoxVideo.Hide();
-            comboBoxPdf.Hide();
             btnRefreshVideo.Hide();
             btnRefreshPdf.Hide();
         }
