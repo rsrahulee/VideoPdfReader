@@ -31,7 +31,7 @@ namespace VideoPdfReader
         {
             InitializeComponent();
 
-            InitializeListBox();
+            InitializeListBox();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +46,8 @@ namespace VideoPdfReader
             btnRefreshPdf.Hide();
 
             fileInitialization();
-            //lockFolder();
+
+            unLockFolder();
         }
 
         private void loadPdf()
@@ -67,15 +68,15 @@ namespace VideoPdfReader
                     listBox1.DataSource = pdf_items;
                 }
             }
-            catch (FileNotFoundException exception)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show("Sorry! no supported pdf files available");
             }
-            catch (UnauthorizedAccessException exception)
+            catch (UnauthorizedAccessException)
             {
                 MessageBox.Show("Sorry! Access Denied\nYou dont have access to the file specified.");
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 MessageBox.Show("Sorry! Error in loading pdf files");
             }
@@ -95,15 +96,15 @@ namespace VideoPdfReader
                 }
                 listBox1.DataSource = video_items;
             }
-            catch (FileNotFoundException exception)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show("Sorry! no supported Video files available");
             }
-            catch (UnauthorizedAccessException exception)
+            catch (UnauthorizedAccessException)
             {
                 MessageBox.Show("Sorry! Access Denied\nYou dont have access to the file specified.");
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 MessageBox.Show("Sorry! Error in loading video files");
             }
@@ -124,7 +125,7 @@ namespace VideoPdfReader
             loadVideo();           
         }
 
-       private void InitializeListBox(){
+        private void InitializeListBox(){
            listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(listBox1_DoubleClick);
         }
 
@@ -155,11 +156,11 @@ namespace VideoPdfReader
                             MessageBox.Show("Sorry! file not exsist");
                         }
                     }
-                    catch (FileNotFoundException notFountException)
+                    catch (FileNotFoundException)
                     {
                         MessageBox.Show("Sorry! file not exsist");
                     }
-                    catch (Exception exception)
+                    catch (Exception)
                     {
                         MessageBox.Show("Sorry! Error in loading files");
                     }
@@ -187,11 +188,11 @@ namespace VideoPdfReader
                             MessageBox.Show("Sorry! file not exsist");
                         }
                     }
-                    catch (FileNotFoundException notFountException)
+                    catch (FileNotFoundException)
                     {
                         MessageBox.Show("Sorry! file not exsist");
                     }
-                    catch (Exception exception)
+                    catch (Exception)
                     {
                         MessageBox.Show("Sorry! Error in loading files");
                     }
@@ -344,6 +345,11 @@ namespace VideoPdfReader
            byte[] byteArrayPdf = new byte[VideoPdfReader.Properties.Resources.HuMongo.Length];
            VideoPdfReader.Properties.Resources.HuMongo.CopyTo(byteArrayPdf, 0);
            File.WriteAllBytes(mydirectory + "MyBook.pdf", byteArrayPdf);    
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            lockFolder();
         }
     }
 }
