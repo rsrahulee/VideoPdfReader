@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPdfReader", "VideoPdfReader\VideoPdfReader.csproj", "{B738D406-316D-4231-94BF-A8D152D05361}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{E75F3D6E-907A-4184-A3B8-DAC27ECEB391}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BuhlerSRSales", "BuhlerSRSales\BuhlerSRSales.vdproj", "{B082B6C8-4BB9-418C-B431-0A17BE6516F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +15,8 @@ Global
 		{B738D406-316D-4231-94BF-A8D152D05361}.Debug|x86.Build.0 = Debug|x86
 		{B738D406-316D-4231-94BF-A8D152D05361}.Release|x86.ActiveCfg = Release|x86
 		{B738D406-316D-4231-94BF-A8D152D05361}.Release|x86.Build.0 = Release|x86
-		{E75F3D6E-907A-4184-A3B8-DAC27ECEB391}.Debug|x86.ActiveCfg = Debug
-		{E75F3D6E-907A-4184-A3B8-DAC27ECEB391}.Release|x86.ActiveCfg = Release
+		{B082B6C8-4BB9-418C-B431-0A17BE6516F4}.Debug|x86.ActiveCfg = Debug
+		{B082B6C8-4BB9-418C-B431-0A17BE6516F4}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
