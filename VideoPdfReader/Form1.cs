@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.DirectX;
 using Microsoft.DirectX.AudioVideoPlayback;
+using System.Resources;
+using System.Security.AccessControl;
 
 namespace VideoPdfReader
 {
@@ -22,7 +24,8 @@ namespace VideoPdfReader
         private Boolean is_video_click = false;
         private Boolean is_pdf_click = false;
 
-        private string directory = "D:\\Rahul";
+        private string mydirectory;
+        private string myDocspath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
         public Form1()
         {
@@ -35,12 +38,15 @@ namespace VideoPdfReader
         {
             Console.WriteLine("Form1_Load------------");
 
-            this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Text = "VideoPdfReader";
+            this.MaximizeBox = false;
 
             btnRefreshVideo.Hide();
             btnRefreshPdf.Hide();
+
+            fileInitialization();
+            //lockFolder();
         }
 
         private void loadPdf()
@@ -50,12 +56,12 @@ namespace VideoPdfReader
          
             try
             {
-                filePaths = Directory.GetFiles(directory, "*.pdf", SearchOption.AllDirectories);
+                filePaths = Directory.GetFiles(mydirectory, "*.pdf", SearchOption.AllDirectories);
                 if (filePaths.Length > 0)
                 {
                     foreach (string name in filePaths)
                     {
-                        String preName = name.Substring(9);
+                        String preName = name.Substring(37);
                         pdf_items.Add(preName);
                     }
                     listBox1.DataSource = pdf_items;
@@ -63,11 +69,15 @@ namespace VideoPdfReader
             }
             catch (FileNotFoundException exception)
             {
-                MessageBox.Show("Sorry! no supported pdf files available\n" + exception);
+                MessageBox.Show("Sorry! no supported pdf files available");
+            }
+            catch (UnauthorizedAccessException exception)
+            {
+                MessageBox.Show("Sorry! Access Denied\nYou dont have access to the file specified.");
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Sorry! Error in loading pdf files\n" + exception);
+                MessageBox.Show("Sorry! Error in loading pdf files");
             }
         }
 
@@ -78,21 +88,24 @@ namespace VideoPdfReader
             try
             {
                 string supportedExtensions = "*.mpg,*.avi,*.mp4";
-                foreach (string videoFile in Directory.GetFiles(directory, "*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())))
+                foreach (string videoFile in Directory.GetFiles(mydirectory, "*.*", SearchOption.AllDirectories).Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())))
                 {
-                    //video_items.Add(videoFile);
-                    String preName = videoFile.Substring(9);
+                    String preName = videoFile.Substring(37);
                     video_items.Add(preName);
                 }
                 listBox1.DataSource = video_items;
             }
             catch (FileNotFoundException exception)
             {
-                MessageBox.Show("Sorry! no supported Video files available\n" + exception);
-            }            
+                MessageBox.Show("Sorry! no supported Video files available");
+            }
+            catch (UnauthorizedAccessException exception)
+            {
+                MessageBox.Show("Sorry! Access Denied\nYou dont have access to the file specified.");
+            }
             catch (Exception exception)
             {
-                MessageBox.Show("Sorry! Error in loading video files\n" + exception);
+                MessageBox.Show("Sorry! Error in loading video files");
             }
         } 
 
@@ -108,7 +121,7 @@ namespace VideoPdfReader
 
         private void btnRefreshVideo_Click(object sender, EventArgs e)
         {
-            loadVideo();
+            loadVideo();           
         }
 
        private void InitializeListBox(){
@@ -116,15 +129,15 @@ namespace VideoPdfReader
         }
 
         private void listBox1_DoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
-        {     
-            
+        {   
             Console.WriteLine("listBox1_DoubleClick---------------");
+           
             if (is_pdf_click == true)
             {               
                 if (pdf_items.Count > 0)
                 {
                     String absPAth = pdf_items.ElementAt(listBox1.SelectedIndex);
-                    String file_name = directory+"\\"+ absPAth;
+                    String file_name = mydirectory + absPAth;
 
                     try
                     {
@@ -144,20 +157,19 @@ namespace VideoPdfReader
                     }
                     catch (FileNotFoundException notFountException)
                     {
-                        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
+                        MessageBox.Show("Sorry! file not exsist");
                     }
                     catch (Exception exception)
                     {
-                        MessageBox.Show("Sorry! Error in loading files\n" + exception);
+                        MessageBox.Show("Sorry! Error in loading files");
                     }
                 }
                 else
                 {
                     loadPdf();
 
-                    //String file_name = pdf_items.ElementAt(listBox1.SelectedIndex);
                     String absPAth = pdf_items.ElementAt(listBox1.SelectedIndex);
-                    String file_name = directory + "\\" + absPAth;
+                    String file_name = mydirectory + absPAth;
 
                     try
                     {
@@ -177,11 +189,11 @@ namespace VideoPdfReader
                     }
                     catch (FileNotFoundException notFountException)
                     {
-                        MessageBox.Show("Sorry! file not exsist\n" + notFountException);
+                        MessageBox.Show("Sorry! file not exsist");
                     }
                     catch (Exception exception)
                     {
-                        MessageBox.Show("Sorry! Error in loading files\n" + exception);
+                        MessageBox.Show("Sorry! Error in loading files");
                     }
                 }
             }
@@ -189,9 +201,8 @@ namespace VideoPdfReader
             {
                 if (video_items.Count > 0)
                 {
-                    //String file_name = video_items.ElementAt(listBox1.SelectedIndex);
                     String absPAth = video_items.ElementAt(listBox1.SelectedIndex);
-                    String file_name = directory + "\\" + absPAth;
+                    String file_name = mydirectory + absPAth;
                     try
                     {
                         if (System.IO.File.Exists(file_name) == true)
@@ -221,9 +232,8 @@ namespace VideoPdfReader
                 {
                     loadVideo();
 
-                    //String file_name = video_items.ElementAt(listBox1.SelectedIndex);
                     String absPAth = video_items.ElementAt(listBox1.SelectedIndex);
-                    String file_name = directory + "\\" + absPAth;
+                    String file_name = mydirectory + absPAth;
                     try
                     {
                         if (System.IO.File.Exists(file_name) == true)
@@ -282,6 +292,58 @@ namespace VideoPdfReader
             this.Controls.Add(axAcroPDFReader);
 
             loadPdf();
+        }
+
+        private void lockFolder()
+        {
+            try
+             {
+              string adminUserName = Environment.UserName;
+              DirectorySecurity ds = Directory.GetAccessControl(mydirectory);
+              FileSystemAccessRule fsa = new FileSystemAccessRule(adminUserName, FileSystemRights.FullControl, AccessControlType.Deny);
+
+              ds.AddAccessRule(fsa);
+              Directory.SetAccessControl(mydirectory, ds);
+             }
+             catch (Exception ex)
+             {
+                MessageBox.Show(ex.Message);
+             } 
+        }
+
+        private void unLockFolder()
+        {
+            try
+            {
+                string adminUserName = Environment.UserName;
+                DirectorySecurity ds = Directory.GetAccessControl(mydirectory);
+                FileSystemAccessRule fsa = new FileSystemAccessRule(adminUserName, FileSystemRights.FullControl, AccessControlType.Deny);
+              
+                ds.RemoveAccessRule(fsa);
+                Directory.SetAccessControl(mydirectory, ds);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void fileInitialization()
+        {            
+           mydirectory = myDocspath + "\\" + "WeboniseLab\\";
+
+           if (!Directory.Exists(mydirectory))
+           {
+               Directory.CreateDirectory(mydirectory);
+           }
+
+           byte[] byteArrayVideo = new byte[VideoPdfReader.Properties.Resources.Takeoff.Length];
+           VideoPdfReader.Properties.Resources.Takeoff.CopyTo(byteArrayVideo, 0);
+           File.WriteAllBytes(mydirectory + "MyVideo.mpg", byteArrayVideo);
+
+           byte[] byteArrayPdf = new byte[VideoPdfReader.Properties.Resources.HuMongo.Length];
+           VideoPdfReader.Properties.Resources.HuMongo.CopyTo(byteArrayPdf, 0);
+           File.WriteAllBytes(mydirectory + "MyBook.pdf", byteArrayPdf);    
         }
     }
 }
